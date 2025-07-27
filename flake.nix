@@ -27,14 +27,13 @@
             python313
           ];
           shellHook = ''
-			export UV_VENV_PATH=./backend/.venv
-			if [ ! -d "$UV_VENV_PATH" ]; then
-				echo "[devShell] create uv venv -> $UV_VENV_PATH"
-				uv venv "$UV_VENV_PATH"
-				uv pip install -r backend/pyproject.toml
-			fi
-			source "$UV_VENV_PATH/bin/activate"
-		  '';
+						export UV_VENV_PATH=./backend/.venv
+						if [ ! -d "$UV_VENV_PATH" ]; then
+							uv venv "$UV_VENV_PATH"
+							uv pip install -r backend/pyproject.toml
+						fi
+						source "$UV_VENV_PATH/bin/activate"
+					'';
         };
       }
     );
